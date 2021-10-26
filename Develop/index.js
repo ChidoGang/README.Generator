@@ -1,15 +1,22 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
-const util = require("util");
 const inquirer = require("inquirer");
-// TODO: Create an array of questions for user input
-const questions =()=>  {
+const generateMarkdown = require("./utils/generateMarkdown")
 
-return inquirer ([
+// TODO: Create an array of questions for user input
+const questions = [
 {
     type:'input',
     name:'username',
     message:'what is your GitHub username(required)',
+    validate: usernameInput => {
+        if (usernameInput) {
+            return true;
+        } else {
+            console.log('Please enter a username');
+            return false;
+        }
+    }
 },
 
 {
@@ -21,7 +28,7 @@ return inquirer ([
 
 {
     type:'input',
-    name:'Projects name',
+    name:'title',
     message:'what is your projects name?',
 
 },
@@ -29,15 +36,16 @@ return inquirer ([
 {
 
     type:'input',
-    name:'short Description',
+    name:'description',
     message:'Please write a short description of your project',
 
 },
 
 {
-    type:'input',
-    name:'Licensing',
+    type:'list',
+    name:'license',
     message:'Select your projects licensing',
+    choices: ['MIT', 'APACHE', 'GPL', 'None']
 
 },
 
@@ -65,15 +73,12 @@ return inquirer ([
     name:'contributing',
     message:'What does the user need to know about contributing to the repo!',
 
-},
-
-])
-};
+}];
 
 // TODO: Create a function to write README file
 
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateMarkdown(data), function (err) {
+    fs.writeFile(fileName, data, function (err) {
       if (err) {
         return console.log(err);
       }
@@ -83,13 +88,11 @@ function writeToFile(fileName, data) {
 
 
 // TODO: Create a function to initialize app
-
-inquirer.prompt(questions).then((data) => {
-    console.log(JSON.stringify(data, null, " "));
-    data.getLicense = getLicense(data.license);
-    writeToFile("./example/README.md", data);
-  });
-
+function init() {
+    inquirer.prompt(questions).then((data) => {
+        writeToFile("README.md", generateMarkdown(data));
+    });
+}
 
 
 // Function call to initialize app
