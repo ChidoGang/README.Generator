@@ -1,5 +1,5 @@
 
-  # README. Generator
+  # REAdme. Generator
 
   ## Table of content
   * [Description](#description)
@@ -14,13 +14,13 @@
   * [Question](#questions)
 
   ## Description
-  This code was intended to save the developer time by Automatically generate a README. 
+  This program was created to help save time by automatically generating a README template
 
   ## Installation 
-  mpa i
+  Npm i 
 
   ## Usage
-  How to understand node
+  nothing
 
   ## Credits 
   This program was written by ChidoGang.
@@ -35,12 +35,12 @@
     
 
   ## Contributing 
-  Nothing
+  nothing
 
   ## Test 
   undefined
 
   ## Question 
-  If you have any questions of concern, email me at edgarquintanilla50@yahoo.com. <br />
+  If you have any questions of concern, email me at edgarquintanilla@mymail.rcbc.edu. <br />
   You can also checkout other works I have done at https://www.github.com/ChidoGang.
 
