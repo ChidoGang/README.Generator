@@ -63,7 +63,7 @@ const questions = [
 
 {
     type:'input',
-    name:'user need to know about repo',
+    name:'usage',
     message:'What does the user need to know about using the repo?',
 
 },

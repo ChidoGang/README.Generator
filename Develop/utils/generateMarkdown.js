@@ -72,20 +72,25 @@ function generateMarkdown(data) {
   ${data.description}
 
   ## Installation 
+  ${data.installation}
 
   ## Usage
+  ${data.usage}
 
   ## Credits 
-
+  This program was written by ${data.username}.
+  
   ${renderLicenseSection(data.license)}
 
-  ## Features
-
   ## Contributing 
+  ${data.contributing}
 
   ## Test 
+  ${data.runtest}
 
   ## Question 
+  If you have any questions of concern, email me at ${data.email}. <br />
+  You can also checkout other works I have done at https://www.github.com/${data.username}.
 
 `;
 }
